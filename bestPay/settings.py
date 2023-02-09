@@ -26,7 +26,7 @@ SECRET_KEY = 'django-insecure-rr)%@4h@&71ct*bm11yezgdy6hbjk1@5dz8@@3#&h9&j@7f&)d
 DEBUG = True
 
 ALLOWED_HOSTS = [
-    "https://bp-app-i6med.ondigitalocean.app/"
+    "bp-app-i6med.ondigitalocean.app/"
 ]
 
 
