@@ -1,0 +1,100 @@
+{% extends 'base.html' %}
+{% load bootstrap4 %}
+{% load static %}
+{% block title %} All AirtelTigo Bundles - BestPay {% endblock %}
+
+{% block content %}
+
+    <div class="back-to-top"></div>
+
+      <header>
+        {% include 'inc/navbar.html' %}
+
+        <div class="container mt-5">
+          <div class="page-banner">
+            <div class="row justify-content-center align-items-center h-100">
+              <div class="col-md-6">
+                <nav aria-label="Breadcrumb">
+                  <ul class="breadcrumb justify-content-center py-0 bg-transparent">
+                    <li class="breadcrumb-item"><a href="{% url 'home' %}">Home</a></li>
+                    <li class="breadcrumb-item active"><a href="{% url 'services' %}">Services</a></li>
+                      <li class="breadcrumb-item active"><a href="{% url 'bundle' %}">Bundle</a></li>
+                    <li class="breadcrumb-item active">AirtelTigo Bundles</li>
+                  </ul>
+                </nav>
+                <h1 style="color: #8e8aad" class="text-center">AirtelTigo Data Bundles</h1>
+                  <div class="justify-content-center breadcrumb bg-transparent">
+                      <span class="breadcrumb-item active">Big Time Data and Sika Kokoo Bundles</span>
+                  </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </header>
+
+    <main>
+        <div class="page-section">
+            <div class="container">
+                <div class="row justify-content-center">
+
+{#==============================================IShare Card=======================================================#}
+                    <div class="col-12 col-lg-auto py-3 wow fadeInRight">
+                        <div class="card-pricing">
+                          <div class="header">
+                            <div class="price-icon my-1"><img src="{% static 'img/services/ishare.png' %}" alt=""></div>
+                          </div>
+                          <div class="body py-3">
+                              <h5 style="color: #F6F6F6">iShare Bundle</h5>
+                            <div class="price-info">
+                              <p>Choose a package from the iShare bundles and browse saaaaaa. Try it now.</p>
+                            </div>
+                          </div>
+                          <div class="footer">
+                            <a href="{% url 'ishare_bundle' %}" class="btn btn-outline rounded-pill">Check it out</a>
+                          </div>
+                        </div>
+                    </div>
+{#==============================================Big Time Card=======================================================#}
+                    <div class="col-12 col-lg-auto py-3 wow fadeInLeft">
+                        <div class="card-pricing">
+                          <div class="header">
+                            <div class="price-icon my-1"><img src="{% static 'img/services/big-time.png' %}" alt=""></div>
+                          </div>
+                          <div class="body py-3">
+                              <h5 style="color: #F6F6F6">Big Time Data</h5>
+                            <div class="price-info">
+                              <p>Choose a package from the Big Time Data Bundles and feel big!!!!!</p>
+                            </div>
+                          </div>
+                          <div class="footer">
+                            <a href="{% url 'at-big-time' %}" class="btn btn-outline rounded-pill">Check it out</a>
+                          </div>
+                        </div>
+                    </div>
+
+{#===============================================Sika Kokoo Card=======================================================#}
+                    <div class="col-12 col-lg-auto py-3 wow fadeInRight">
+                        <div class="card-pricing">
+                          <div class="header">
+                            <div class="price-icon my-1"><img src="{% static 'img/services/sika-kokoo.png' %}" alt=""></div>
+                          </div>
+                          <div class="body py-3">
+                              <h5 style="color: #F6F6F6">Sika Kokoo</h5>
+                            <div class="price-info">
+                              <p>Choose a package from the Sika Kokoo and get connected all day.</p>
+                            </div>
+                          </div>
+                          <div class="footer">
+                            <a href="{% url 'at-sika-kokoo' %}" class="btn btn-outline rounded-pill">Check it out</a>
+                          </div>
+                        </div>
+                    </div>
+
+                </div>
+            </div>
+        </div>
+    </main>
+
+    {% include 'inc/footer.html' %}
+
+{% endblock %}

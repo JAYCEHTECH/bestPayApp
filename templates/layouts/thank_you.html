@@ -1,0 +1,41 @@
+{% extends 'base.html' %}
+{% load bootstrap4 %}
+{% block title %} Thank You {% endblock %}
+
+{% block content %}
+
+    <div class="back-to-top"></div>
+
+      <header>
+        {% include 'layouts/../inc/navbar.html' %}
+
+        <div class="container mt-5">
+          <div class="page-banner">
+            <div class="row justify-content-center align-items-center h-100">
+              <div class="col-md-6">
+                  <div class="text-center justify-content-center ml-auto mr-auto">
+                      <lottie-player class="text-center ml-auto mr-auto" src="https://assets10.lottiefiles.com/packages/lf20_snmbndsh.json"  background="transparent"  speed="1"  style="width: 250px; height: 250px;"  loop  autoplay></lottie-player>
+                  </div>
+                  <div class="justify-content-center breadcrumb bg-transparent">
+                      <p><span class="breadcrumb-item active">For Choosing BestPay. Buy again Soon!</span></p>
+                  </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </header>
+
+    <main>
+    <div class="page-section">
+        <div class="container">
+             <p class="text-center">Continue to ...</p>
+            <div class="row justify-content-center">
+                <a href="{% url 'airtime' %}" class="btn btn-outline-primary mr-3">Airtime</a>
+                <a href="{% url 'bundle' %}" class="btn btn-outline-primary mr-3">Data Bundle</a>
+                <a href="{% url 'tv' %}" class="btn btn-outline-primary">TV</a>
+            </div>
+        </div>
+    </div>
+    </main>
+
+{% endblock %}

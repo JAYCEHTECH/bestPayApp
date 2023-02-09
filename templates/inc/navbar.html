@@ -1,0 +1,49 @@
+{% load static %}
+<nav class="navbar navbar-expand-lg navbar-dark bg-dark navbar-float">
+      <div class="container">
+        <a href="{% url 'home' %}" class="navbar-brand px-0 mx-0  fadeInLeft"><img class="px-0 mx-0" src="{% static 'img/site/bp-brand.png' %}" alt=""></a>
+
+        <button class="navbar-toggler" data-toggle="collapse" data-target="#navbarContent" aria-controls="navbarContent" aria-expanded="false" aria-label="Toggle navigation">
+          <span class="navbar-toggler-icon"></span>
+        </button>
+
+        <div class="navbar-collapse collapse" id="navbarContent">
+          <ul class="navbar-nav ml-lg-4 pt-3 pt-lg-0">
+            <li class="nav-item">
+              <a href="{% url 'home' %}" class="nav-link {% if request.resolver_match.url_name == 'home' %}active fw-bold{% endif %}">Home</a>
+            </li>
+            <li class="nav-item">
+              <a href="{% url 'about' %}" class="nav-link {% if request.resolver_match.url_name == 'about' %}active fw-bold{% endif %}">About</a>
+            </li>
+            <li class="nav-item">
+              <a  href="{% url 'services' %}" class="nav-link {% if request.resolver_match.url_name == 'services' %}active fw-bold{% endif %}">Services</a>
+            </li>
+            <li class="nav-item">
+              <a  href="{% url 'products' %}" class="nav-link {% if request.resolver_match.url_name == 'products' %}active fw-bold{% endif %}">Shop</a>
+            </li>
+              {% if request.user.is_authenticated %}
+                <li class="nav-item">
+                    <a href="{% url 'logout' %}" class="nav-link">Logout</a>
+                </li>
+              {% else %}
+                  <li class="nav-item">
+                    <a href="{% url 'login' %}" class="nav-link">Login</a>
+                    </li>
+                  <li class="nav-item">
+                    <a href="{% url 'signup' %}" class="nav-link">Sign Up</a>
+                  </li>
+              {% endif %}
+          </ul>
+            {% if request.user.is_authenticated %}
+              <div class="ml-auto dropdown">
+                <a href="#" class="nav-link user-icon dropdown-toggle" id="dropdownMenuButton" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false"><i class="fa-regular fa-user"></i> {{ request.user.username | capfirst }}</a>
+                  <div class="dropdown-menu" aria-labelledby="dropdownMenuButton">
+                    <a class="dropdown-item" href="{% url 'user-dashboard' %}">Dashboard</a>
+                    <a class="dropdown-item" href="{% url 'view-cart' %}">Shop Cart</a>
+                    <a class="dropdown-item" href="#">Shop Orders</a>
+                  </div>
+              </div>
+            {% endif %}
+        </div>
+      </div>
+    </nav>

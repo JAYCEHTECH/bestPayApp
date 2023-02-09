@@ -1,0 +1,79 @@
+{% extends 'base.html' %}
+{% load bootstrap4 %}
+{% load static %}
+{% block title %} TV Services - BestPay {% endblock %}
+
+{% block content %}
+
+    <div class="back-to-top"></div>
+
+      <header>
+        {% include 'inc/navbar.html' %}
+
+        <div class="container mt-5">
+          <div class="page-banner">
+            <div class="row justify-content-center align-items-center h-100">
+              <div class="col-md-6">
+                <nav aria-label="Breadcrumb">
+                  <ul class="breadcrumb justify-content-center py-0 bg-transparent">
+                    <li class="breadcrumb-item"><a href="{% url 'home' %}">Home</a></li>
+                    <li class="breadcrumb-item active"><a href="{% url 'services' %}">Services</a></li>
+                    <li class="breadcrumb-item active">TV</li>
+                  </ul>
+                </nav>
+                <h1 style="color: #8e8aad" class="text-center">TV Subscriptions</h1>
+                  <div class="justify-content-center breadcrumb bg-transparent">
+                      <span class="breadcrumb-item active">Pay your tv subscriptions and check your balance anytime</span>
+                  </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </header>
+
+    <main>
+        <div class="page-section">
+            <div class="container">
+                <div class="row justify-content-center">
+{#====================================================Pay Card=======================================================#}
+                    <div class="col-12 col-lg-auto py-3 wow fadeInLeft">
+                        <div class="card-pricing">
+                          <div class="header">
+                            <div class="price-icon my-1"><i class="fa-solid fa-tv"></i></div>
+                          </div>
+                          <div class="body py-3">
+                            <div class="price-info">
+                              <p>Pay for your tv subscriptions or add amounts to your account anytime.</p>
+                            </div>
+                          </div>
+                          <div class="footer">
+                            <a href="{% url 'tv-subscription' %}" class="btn btn-outline rounded-pill">Check it out</a>
+                          </div>
+                        </div>
+                    </div>
+
+{#===============================================Check Card=======================================================#}
+                    <div class="col-12 col-lg-auto py-3 wow fadeInRight">
+                        <div class="card-pricing">
+                          <div class="header">
+                            <div class="price-icon my-1"><i class="fa-solid fa-tv"></i></div>
+                          </div>
+                          <div class="body py-3">
+                            <div class="price-info">
+                              <p>Check your TV account balance and details of the account and know when to top up.</p>
+                            </div>
+                          </div>
+                          <div class="footer">
+                            <a href="{% url 'tv_check' %}" class="btn btn-outline rounded-pill">Check it out</a>
+                          </div>
+                        </div>
+                    </div>
+
+                </div>
+            </div>
+        </div>
+    </main>
+
+    {% include 'inc/footer.html' %}
+
+{% endblock %}

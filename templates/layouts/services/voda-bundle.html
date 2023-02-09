@@ -1,0 +1,62 @@
+{% extends 'base.html' %}
+{% load static %}
+{% block title %} Vodafone Bundles - BestPay {% endblock %}
+{% block content %}
+
+  <!-- Back to top button -->
+  <div class="back-to-top"></div>
+
+  <header>
+    {% include 'inc/navbar.html' %}
+
+    <div class="container mt-5">
+      <div class="page-banner">
+        <div class="row justify-content-center align-items-center h-100">
+          <div class="col-md-6">
+            <nav aria-label="Breadcrumb">
+              <ul class="breadcrumb justify-content-center py-0 bg-transparent">
+                <li class="breadcrumb-item"><a href="{% url 'home' %}">Home</a></li>
+                <li class="breadcrumb-item active"><a href="{% url 'services' %}">Services</a></li>
+                <li class="breadcrumb-item active"><a href="{% url 'bundle' %}">Bundles</a></li>
+                <li class="breadcrumb-item active">Vodafone</li>
+              </ul>
+            </nav>
+            <h1 style="color: #8e8aad" class="text-center">Buy Vodafone Bundles</h1>
+          </div>
+        </div>
+      </div>
+    </div>
+  </header>
+
+  <main>
+    <div class="page-section">
+        <div class="container">
+            <form action="" method="post">
+                {% csrf_token %}
+                    <div class="form-row">
+                      <div class="form-group col-md-6">
+                          <label style="color: #fff"> Phone Number </label>
+                          {{ form.phone_number }}
+                          <small style="color: #fff">Number must start with 233 and exclude 0 after 233. E.g. 2332XXXXXXXX"</small>
+                      </div>
+                      <div class="form-group col-md-6">
+                          <label style="color: #fff"> Choose Offer </label>
+                          {{ form.offers }}
+                      </div>
+
+                      <div class="col-md-12">
+                          <p>Pay with</p>
+                          <img src="{% static 'img/services/momo-fig.png' %}" alt=""> <span style="color: #F6F6F6">||</span>
+                          <img src="{% static 'img/services/atm-fig.png' %}" alt=""> <span style="color: #F6F6F6">||</span>
+                          <img src="{% static 'img/services/voca-fig.png' %}" alt=""> <span style="color: #F6F6F6">||</span>
+                          <img src="{% static 'img/services/vima-fig.png' %}" alt="">
+                      </div>
+                    <button type="submit" class="btn btn-lg btn-primary my-3">Checkout</button>
+            </form>
+        </div>
+    </div>   <!-- .page-section -->
+  </main>
+
+{% include 'inc/footer.html' %}
+
+{% endblock %}

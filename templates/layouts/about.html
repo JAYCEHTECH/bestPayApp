@@ -1,0 +1,79 @@
+{% extends 'base.html' %}
+{% load static %}
+
+{% block content %}
+  <!-- Back to top button -->
+  <div class="back-to-top"></div>
+
+  <header>
+    {% include 'inc/navbar.html' %}
+
+    <div class="container mt-5">
+      <div class="page-banner">
+        <div class="row justify-content-center align-items-center h-100">
+          <div class="col-md-6">
+            <nav aria-label="Breadcrumb">
+              <ul class="breadcrumb justify-content-center py-0 bg-transparent">
+                <li class="breadcrumb-item"><a href="index.html">Home</a></li>
+                <li class="breadcrumb-item active">About</li>
+              </ul>
+            </nav>
+            <h1 style="color: #8e8aad" class="text-center">About Us</h1>
+          </div>
+        </div>
+      </div>
+    </div>
+  </header>
+
+  <main>
+    <div class="page-section">
+      <div class="container">
+        <div class="row align-items-center">
+          <div class="col-lg-6 py-3">
+            <div class="img-fluid text-center">
+              <img src="{% static 'img/bg_image_2.png' %}" alt="">
+            </div>
+          </div>
+          <div class="col-lg-6 py-3 pr-lg-5">
+            <h2 class="title-section">We're <span class="marked">Dynamic</span> Team of Creatives People</h2>
+            <div class="divider"></div>
+            <p>We are BestPay. A telco service provider that makes sure that bundle and airtime purchase is as comfortable as you want.
+                <br><br><strong>We have the <a href="{% url 'ishare_bundle' %}">iShare</a> Package you will want to try any day at anytime. </strong>
+                <br><br>We rely on feedbacks to improve upon our services so our customers can always enjoy doing what they love doing at ease. You can drop by support or our customer service anytime to tell us what you think.</p>
+            <a href="#" class="btn btn-primary">More Details</a>
+            <a href="#" class="btn btn-outline border ml-2">Success Stories</a>
+          </div>
+        </div>
+      </div> <!-- .container -->
+    </div> <!-- .page-section -->
+
+    
+    <div class="page-section client-section">
+      <div class="container-fluid">
+        <div class="row row-cols-2 row-cols-md-3 row-cols-lg-6 justify-content-center">
+          <div class="item wow zoomIn">
+            <img src="{% static 'img/site/dstv.png' %}" alt="">
+          </div>
+          <div class="item wow zoomIn">
+            <img src="{% static 'img/site/voda-c.png' %}" alt="">
+          </div>
+          <div class="item wow zoomIn">
+            <img src="{% static 'img/site/mtn-c.png' %}" alt="">
+          </div>
+          <div class="item wow zoomIn">
+            <img src="{% static 'img/site/at-c.png' %}" alt="">
+          </div>
+          <div class="item wow zoomIn">
+            <img src="{% static 'img/site/glo-c.png' %}" alt="">
+          </div>
+          <div class="item wow zoomIn">
+            <img src="{% static 'img/site/gotv-c.png' %}" alt="">
+          </div>
+        </div>
+      </div> <!-- .container-fluid -->
+    </div> <!-- .page-section -->
+  </main>
+
+  {% include 'inc/footer.html' %}
+
+{% endblock %}

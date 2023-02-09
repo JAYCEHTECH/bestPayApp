@@ -1,0 +1,66 @@
+{% extends 'base.html' %}
+{% load static %}
+
+{% block content %}
+    <div class="back-to-top"></div>
+
+    <header>
+        {% include 'inc/navbar.html' %}
+        <div class="container mt-5"></div>
+    </header>
+
+
+    <main>
+        <div class="page-section">
+            <div class="container">
+                <div class="row justify-content-center mt-5">
+            {#        ===============Product Image================#}
+                    <div class="col-lg-5 col-sm-12 wow fadeInLeft">
+                        <div class="image-div">
+                            <img src="{{ product.product_image }}" alt="">
+                        </div>
+                    </div>
+
+            {#        ===============Product Details================#}
+                    <div class="col-lg-7 col-sm-12 py-3 px-3 wow fadeInRight">
+                        <div class="title">
+                            <h1 style="color: #F6F6F6">{{ product.name}}</h1>
+                        </div>
+
+                        <div class="hr"></div>
+
+                        <p>Price: <span>${{ product.selling_price }}</span></p>
+                        <p class="det-desc">{{ product.description}}</p>
+
+                        <div class="hr"></div>
+
+                        {% if product.quantity > 0 %}
+                            <label class="badge badge-success">In Stock</label>
+                        {% else %}
+                            <label class="badge badge-danger">Out of Stock</label>
+                        {% endif %}
+                        <p>Quantity</p>
+                        <div class="row">
+                          <div class="input-group text-center mr-4 col-lg-4 col-md-4 col-sm-4 mb-3" style="width: 150px">
+                              {% csrf_token %}
+                              <input type="hidden" value={{ product.id }} class="prod_id">
+                            <button class="input-group-text det-btn dec-btn"><i style="color: #F6F6F6;" class="fa-solid fa-minus"></i></button>
+                            <input class="quantity-input form-control det-input text-center" type="number" value="1">
+                            <button class="input-group-text det-btn inc-btn"><i style="color: #F6F6F6; " class="fa-solid fa-plus"></i></button>
+                          </div>
+                          <div class="col-md-5 col-sm-5">
+                              <button class="btn btn-outline-primary addToCart"><i class="fa-solid fa-cart-shopping"></i> Add to Cart</button>
+                          </div>
+                        </div>
+
+                    </div>
+
+                </div>
+            </div>
+        </div>
+    </main>
+
+
+    {% include 'inc/footer.html' %}
+
+{% endblock %}

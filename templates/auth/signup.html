@@ -1,0 +1,152 @@
+{% load static %}
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<title>Login V18</title>
+	<meta charset="UTF-8">
+	<meta name="viewport" content="width=device-width, initial-scale=1">
+<!--===============================================================================================-->
+	<link rel="icon" type="image/png" href="{% static 'img/site/bp-favicon.jpg' %}"/>
+<!--===============================================================================================-->
+	<link rel="stylesheet" type="text/css" href="{% static 'login/vendor/bootstrap/css/bootstrap.min.css' %}">
+<!--===============================================================================================-->
+	<link rel="stylesheet" type="text/css" href="{% static 'login/fonts/font-awesome-4.7.0/css/font-awesome.min.css' %}">
+        <link rel="stylesheet" href="//cdn.jsdelivr.net/npm/alertifyjs@1.13.1/build/css/alertify.min.css"/>
+<link rel="stylesheet" href="//cdn.jsdelivr.net/npm/alertifyjs@1.13.1/build/css/themes/default.min.css"/>
+<!--===============================================================================================-->
+	<link rel="stylesheet" type="text/css" href="{% static 'login/fonts/Linearicons-Free-v1.0.0/icon-font.min.css' %}">
+<!--===============================================================================================-->
+	<link rel="stylesheet" type="text/css" href="{% static 'login/vendor/animate/animate.css' %}">
+    <script src="https://kit.fontawesome.com/74a104b829.js" crossorigin="anonymous"></script>
+<!--===============================================================================================-->
+	<link rel="stylesheet" type="text/css" href="{% static 'login/vendor/css-hamburgers/hamburgers.min.css' %}">
+<!--===============================================================================================-->
+	<link rel="stylesheet" type="text/css" href="{% static 'login/vendor/animsition/css/animsition.min.css' %}">
+<!--===============================================================================================-->
+	<link rel="stylesheet" type="text/css" href="{% static 'login/vendor/select2/select2.min.css' %}">
+<!--===============================================================================================-->
+	<link rel="stylesheet" type="text/css" href="{% static 'login/vendor/daterangepicker/daterangepicker.css' %}">
+<!--===============================================================================================-->
+	<link rel="stylesheet" type="text/css" href="{% static 'login/css/util.css' %}">
+	<link rel="stylesheet" type="text/css" href="{% static 'login/css/main.css' %}">
+<!--===============================================================================================-->
+
+    <style>
+        /* Chrome, Safari, Edge, Opera */
+input::-webkit-outer-spin-button,
+input::-webkit-inner-spin-button {
+  -webkit-appearance: none;
+  margin: 0;
+}
+
+/* Firefox */
+input[type=number] {
+  -moz-appearance: textfield;
+}
+    </style>
+</head>
+<body style="background-color: #666666;">
+
+	<div class="limiter">
+		<div class="container-login100">
+			<div class="wrap-login100">
+				<form class="login100-form validate-form" method="post" action="">
+                    {% csrf_token %}
+                    <div>
+                        <a href="{% url 'home' %}"><i class="fa-solid fa-house-user fa-2x"></i> Home</a>
+                    </div>
+					<span class="login100-form-title p-b-43">
+						 Sign Up
+					</span>
+
+                    <div class="wrap-input100 validate-input">
+						{{ form.username }}
+						<span class="focus-input100"></span>
+						<span class="label-input100">Username</span>
+					</div>
+
+                    <div class="wrap-input100 validate-input">
+						{{ form.first_name }}
+						<span class="focus-input100"></span>
+						<span class="label-input100">First Name</span>
+					</div>
+
+                    <div class="wrap-input100 validate-input">
+						{{ form.last_name }}
+						<span class="focus-input100"></span>
+						<span class="label-input100">Last Name</span>
+					</div>
+
+
+					<div class="wrap-input100 validate-input" data-validate = "Valid email is required: ex@abc.xyz">
+						{{ form.email }}
+						<span class="focus-input100"></span>
+						<span class="label-input100">Email</span>
+					</div>
+
+                    <div class="wrap-input100 validate-input" data-validate = "Valid email is required: ex@abc.xyz">
+						{{ form.phone }}
+						<span class="focus-input100"></span>
+						<span class="label-input100">Phone number</span>
+					</div>
+
+
+					<div class="wrap-input100 validate-input" data-validate="Password is required">
+                        {{form.password1}}
+						<span class="focus-input100"></span>
+						<span class="label-input100">Password</span>
+					</div>
+
+                    <div class="wrap-input100 validate-input" data-validate="Password is required">
+                        {{form.password2}}
+						<span class="focus-input100"></span>
+						<span class="label-input100">Confirm Password</span>
+					</div>
+
+
+					<div class="container-login100-form-btn">
+						<button type="submit" class="login100-form-btn">
+							Sign Up
+						</button>
+                        <p class="my-2">Already have an account? <a style="color: #6675df;" href="{% url 'login' %}">Log in</a></p>
+					</div>
+				</form>
+
+				<div class="login100-more" style="background-image: url('{% static 'img/site/sign.png' %}');">
+				</div>
+			</div>
+		</div>
+	</div>
+
+
+
+
+
+<!--===============================================================================================-->
+	<script src="{% static 'login/vendor/jquery/jquery-3.2.1.min.js' %}"></script>
+<!--===============================================================================================-->
+	<script src="{% static 'login/vendor/animsition/js/animsition.min.js' %}"></script>
+<!--===============================================================================================-->
+	<script src="{% static 'login/vendor/bootstrap/js/popper.js' %}"></script>
+	<script src="{% static 'login/vendor/bootstrap/js/bootstrap.min.js' %}"></script>
+<!--===============================================================================================-->
+	<script src="{% static 'login/vendor/select2/select2.min.js' %}"></script>
+<!--===============================================================================================-->
+	<script src="{% static 'login/vendor/daterangepicker/moment.min.js' %}"></script>
+	<script src="{% static 'login/vendor/daterangepicker/daterangepicker.js' %}"></script>
+<!--===============================================================================================-->
+	<script src="{% static 'login/vendor/countdowntime/countdowntime.js' %}"></script>
+
+        <script src="//cdn.jsdelivr.net/npm/alertifyjs@1.13.1/build/alertify.min.js"></script>
+
+    <script>
+        alertify.set('notifier','position', 'top-right');
+        {% for msg in messages %}
+        alertify.notify('{{msg}}', 'custom');
+        {% endfor %}
+    </script>
+<!--===============================================================================================-->
+	<script src="{% static 'login/js/main.js' %}"></script>
+
+</body>
+</html>

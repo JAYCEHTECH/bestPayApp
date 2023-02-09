@@ -1,0 +1,74 @@
+{% extends 'base.html' %}
+{% load static %}
+
+{% block content %}
+    <div class="back-to-top"></div>
+
+    <header>
+        {% include 'inc/navbar.html' %}
+        <div class="container mt-5">
+      <div class="page-banner">
+        <div class="row justify-content-center align-items-center h-100">
+          <div class="col-md-6">
+            <nav aria-label="Breadcrumb">
+              <ul class="breadcrumb justify-content-center py-0 bg-transparent wow fadeInDown">
+                <li class="breadcrumb-item"><a href="{% url 'home' %}">Home</a></li>
+                <li class="breadcrumb-item active"><a href="{% url 'products' %}">Shop</a></li>
+                <li class="breadcrumb-item active">{{ request.user.username | capfirst }}</li>
+                <li class="breadcrumb-item active">Cart</li>
+              </ul>
+            </nav>
+            <h1 style="color: #8e8aad" class="text-center wow fadeInLeft">My Cart</h1>
+            <div class="justify-content-center breadcrumb bg-transparent">
+                <span class="breadcrumb-item active wow fadeInRight">View all products you have ordered and go on to place the order.</span>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+    </header>
+
+
+    <main class="cart-data">
+        <div class="page-section">
+            <div class="container">
+                <div class="row justify-content-center">
+                    {% if cart %}
+                        {% for product in cart %}
+                            <div class="col-lg-2 col-md-6 col-sm-6">
+                                <img style="width: 50px; height: 50px" src="{{ product.product.product_image }}" alt="">
+                            </div>
+                            <div class="col-lg-3 col-md-6 col-sm-6" style="color: #F6F6F6">
+                                {{ product.product.name }}
+                            </div>
+                            <div class="col-lg-5 col-md-6 col-sm-6">
+                                <div class="row">
+                                    <div class="input-group text-center col-lg-4 col-md-4 col-sm-4 mb-3" style="width: 200px">
+                                  {% csrf_token %}
+                                    <input type="hidden" value={{ product.product.id }} class="prod_id">
+                                    <button class="input-group-text det-btn changeQty dec-btn"><i style="color: #F6F6F6;" class="fa-solid fa-minus"></i></button>
+                                    <input class="quantity-input form-control det-input text-center" type="number" value={{ product.product_qty }}>
+                                    <button class="input-group-text det-btn changeQty inc-btn"><i style="color: #F6F6F6; " class="fa-solid fa-plus"></i></button>
+                                </div>
+                                </div>
+                            </div>
+                            <div class="col-lg-2 col-sm-6 col-md-6">
+                                <button class="btn btn-danger delete-cart-item">Remove</button>
+                            </div>
+                        {% endfor %}
+                        <div class="hr"></div>
+                        <a href="{% url 'checkout' %}" class="btn btn-outline-primary ml-auto">Checkout</a>
+                    {% else %}
+                        <lottie-player src="https://assets4.lottiefiles.com/packages/lf20_zfnngl5k.json"  background="transparent"  speed="1"  style="width: 300px; height: 300px;"  loop  autoplay></lottie-player>
+                    {% endif %}
+
+
+                </div>
+            </div>
+        </div>
+    </main>
+
+
+    {% include 'inc/footer.html' %}
+
+{% endblock %}

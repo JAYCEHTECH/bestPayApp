@@ -1,0 +1,80 @@
+{% extends 'base.html' %}
+{% load bootstrap4 %}
+{% load static %}
+{% block title %} MTN Bundles Group - BestPay {% endblock %}
+
+{% block content %}
+
+    <div class="back-to-top"></div>
+
+      <header>
+        {% include 'inc/navbar.html' %}
+
+        <div class="container mt-5">
+          <div class="page-banner">
+            <div class="row justify-content-center align-items-center h-100">
+              <div class="col-md-6">
+                <nav aria-label="Breadcrumb">
+                  <ul class="breadcrumb justify-content-center py-0 bg-transparent">
+                    <li class="breadcrumb-item"><a href="{% url 'home' %}">Home</a></li>
+                    <li class="breadcrumb-item active"><a href="{% url 'services' %}">Services</a></li>
+                      <li class="breadcrumb-item active"><a href="{% url 'bundle' %}">Bundle</a></li>
+                    <li class="breadcrumb-item active">MTN Bundles</li>
+                  </ul>
+                </nav>
+                <h1 style="color: #8e8aad" class="text-center">MTN Data Bundles</h1>
+                  <div class="justify-content-center breadcrumb bg-transparent">
+                      <span class="breadcrumb-item active">Flexi, Kokrooko, Social Media and Video Bundles</span>
+                  </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </header>
+
+    <main>
+        <div class="page-section">
+            <div class="container">
+                <div class="row justify-content-center">
+{#====================================================Flexi Card=======================================================#}
+                    <div class="col-12 col-lg-auto py-3 wow fadeInLeft">
+                        <div class="card-pricing">
+                          <div class="header">
+                            <div class="price-icon my-1"><img src="{% static 'img/services/flexi.png' %}" alt=""></div>
+                          </div>
+                          <div class="body py-3">
+                            <div class="price-info">
+                              <p>Choose a package from the many from MTN Flexi and basic bundles to get connected.</p>
+                            </div>
+                          </div>
+                          <div class="footer">
+                            <a href="{% url 'mtn-bundle' %}" class="btn btn-outline rounded-pill">Check it out</a>
+                          </div>
+                        </div>
+                    </div>
+
+{#===============================================Other Bundles Card=======================================================#}
+                    <div class="col-12 col-lg-auto py-3 wow fadeInRight">
+                        <div class="card-pricing">
+                          <div class="header">
+                            <div class="price-icon my-1"><img src="{% static 'img/services/others.png' %}" alt=""></div>
+                          </div>
+                          <div class="body py-3">
+                            <div class="price-info">
+                              <p>Choose a package from the many from Kokrooko, Video and Social Media Bundles.</p>
+                            </div>
+                          </div>
+                          <div class="footer">
+                            <a href="{% url 'other-mtn-bundles' %}" class="btn btn-outline rounded-pill">Check it out</a>
+                          </div>
+                        </div>
+                    </div>
+
+                </div>
+            </div>
+        </div>
+    </main>
+
+    {% include 'inc/footer.html' %}
+
+{% endblock %}

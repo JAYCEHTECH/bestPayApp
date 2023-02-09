@@ -1,0 +1,65 @@
+{% extends 'dashboard/base.html' %}
+
+    {% block content %}
+        {% include 'dashboard/inc/navbar.html' %}
+        <div id="layoutSidenav">
+            {% include 'dashboard/inc/sideNav.html' %}
+            <div id="layoutSidenav_content">
+                <main>
+                    <div class="container-fluid px-4">
+                        <h1 class="mt-4">{{ heading }}</h1>
+                        <ol class="breadcrumb mb-4">
+                            <li class="breadcrumb-item"><a href="{% url 'user-dashboard' %}">Dashboard</a></li>
+                            <li class="breadcrumb-item active">{{ heading }}</li>
+                        </ol>
+                        <div class="card mb-4">
+                            <div class="card-body">
+                                Here you can find all your {{ heading }} transactions and make enquiries with the reference
+                                .
+                            </div>
+                        </div>
+                        <div class="card mb-4">
+                            <div class="card-header">
+                                <i class="fas fa-table me-1"></i>
+                                Transaction Table
+                            </div>
+                            <div class="card-body">
+                                <table id="datatablesSimple">
+                                    <thead>
+                                        <tr>
+                                            <th>Phone Number</th>
+                                            <th>Offer</th>
+                                            <th>Reference</th>
+                                            <th>Txn. Date</th>
+                                            <th>Txn. Status</th>
+                                        </tr>
+                                    </thead>
+                                    <tfoot>
+                                        <tr>
+                                            <th>Phone Number</th>
+                                            <th>Offer</th>
+                                            <th>Reference</th>
+                                            <th>Txn. Date</th>
+                                            <th>Txn. Status</th>
+                                        </tr>
+                                    </tfoot>
+                                    <tbody>
+                                    {% for txn in data %}
+                                        <tr>
+                                            <td>{{ txn.bundle_number}}</td>
+                                            <td>{{ txn.offer}}</td>
+                                            <td>{{ txn.reference}}</td>
+                                            <td>{{ txn.transaction_date}}</td>
+                                            <td>{{ txn.transaction_status}}</td>
+                                        </tr>
+                                    {% endfor %}
+                                    </tbody>
+                                </table>
+                            </div>
+                        </div>
+                    </div>
+                </main>
+                {% include 'dashboard/inc/footer.html' %}
+            </div>
+        </div>
+    {% endblock %}

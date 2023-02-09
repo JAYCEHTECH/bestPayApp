@@ -1,0 +1,143 @@
+{% extends 'base.html' %}
+{% load static %}
+
+{% block content %}
+    <div class="back-to-top"></div>
+
+    <header>
+        {% include 'inc/navbar.html' %}
+        <div class="container mt-5"></div>
+    </header>
+
+
+    <main>
+        <div class="page-section">
+            <div class="container">
+                <form action="" method="post">
+                {% csrf_token %}
+                <div class="row justify-content-center mt-5">
+            {#        ===============Product Image================#}
+                    <div class="col-lg-7 col-sm-12">
+                        <h6 style="color: #F6F6F6">Order Details</h6>
+                        <div class="hr"></div>
+                        <div class="form-div">
+                            <div class="row">
+                                <div class="col-md-6 mb-3">
+                                    <label class="checkout-label" for="">First Name</label>
+                                    <input
+                                      name="fname"
+                                      type="text"
+                                      id = "first-name"
+                                      required
+                                      class="form-control"
+                                      placeholder="Enter first Name"
+                                    />
+                                </div>
+                              <div class="col-md-6 mb-3">
+                                <label class="checkout-label" for="">Last Name</label>
+                                <input
+                                id = "last-name"
+                                  name="lname"
+                                  type="text"
+                                  required
+                                  class="form-control"
+                                  placeholder="Enter last Name"
+                                />
+                              </div>
+                              <div class="col-md-6 mb-3">
+                                <label class="checkout-label" for="">Email</label>
+                                <input
+                                id = "email-address"
+                                  name="email"
+                                  type="text"
+                                  required
+                                  class="form-control"
+                                  value="{{request.user.email}}"
+                                  placeholder="example@email.com"
+                                />
+                              </div>
+                              <div class="col-md-6 mb-3">
+                                <label class="checkout-label" for="">Phone</label>
+                                <input
+                                id = "phone"
+                                  name="phone"
+                                  type="text"
+                                  required
+                                  class="form-control"
+                                  placeholder="Enter Phone Number"
+                                />
+                              </div>
+                              <div class="col-md-12 mt-2">
+                                <label class="checkout-label" for="">Address</label>
+                                <textarea
+                                id = "address"
+                                  name="address"
+                                  required
+                                  class="form-control"
+                                  placeholder="Enter City"
+                                >
+                                {{user_profile.address}}</textarea
+                                >
+                              </div>
+                            </div>
+                        </div>
+                    </div>
+
+            {#        ===============Product Details================#}
+                    <div class="col-lg-5 col-sm-12 py-3 px-3 wow fadeInRight">
+                        <h6 style="color: #F6F6F6">Order Summary</h6>
+                        {% if cart_items %}
+                        <table class="table table-stripeds" style="color: #F6F6F6">
+                          <thead>
+                            <tr>
+                              <th>Product</th>
+                              <th>Qty</th>
+                              <th>Unit Price</th>
+                            </tr>
+                          </thead>
+                          <tbody>
+                            {% for item in cart_items %}
+                            <tr>
+                              <td>
+                                <img
+                                  src="{{item.product.product_image}}"
+                                  alt=""
+                                  height="50px"
+                                  width="50px"
+                                />
+                                {{item.product.name}}
+                              </td>
+                              <td>{{item.product_qty}}</td>
+                              <td>Ghs {{item.product.selling_price|stringformat:'d'}}</td>
+                            </tr>
+                            {% endfor %}
+                          </tbody>
+                        </table>
+                        <h6 style="color: #F6F6F6" class="fw-bold">
+                          Grand Total
+                          <span class="float-end">
+                            GHs {{total_price|stringformat:'d'}}
+                          </span>
+                        </h6>
+                        <input type="hidden" name="payment_mode" value="COD" />
+                        <input type="hidden" name="amount" value="{{total_price}}" />
+                        <input type="hidden" name="ref" value="{{ref}}">
+                          <button class="btn btn-outline-success col-md-12 mt-3" type="submit">Pay Online</button>
+                        {% else %}
+                        <h4 style="color: #F6F6F6">Your Cart is empty</h4>
+                        {% endif %}
+                    </div>
+                </div>
+                </form>
+            </div>
+        </div>
+            </div>
+                </div>
+            </div>
+        </div>
+    </main>
+
+
+    {% include 'inc/footer.html' %}
+
+{% endblock %}

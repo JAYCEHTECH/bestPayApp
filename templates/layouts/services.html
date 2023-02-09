@@ -1,0 +1,155 @@
+{% extends 'base.html' %}
+{% block title %} Services - BestPay {% endblock %}
+{% block content %}
+
+  <!-- Back to top button -->
+  <div class="back-to-top"></div>
+
+  <header>
+    {% include 'inc/navbar.html' %}
+
+    <div class="container mt-5">
+      <div class="page-banner">
+        <div class="row justify-content-center align-items-center h-100">
+          <div class="col-md-6">
+            <nav aria-label="Breadcrumb">
+              <ul class="breadcrumb justify-content-center py-0 bg-transparent wow fadeInRight">
+                <li class="breadcrumb-item"><a href="{% url 'home' %}">Home</a></li>
+                <li class="breadcrumb-item active">Services</li>
+              </ul>
+            </nav>
+            <h1 style="color: #8e8aad" class="text-center wow fadeInLeft">Services</h1>
+          </div>
+        </div>
+      </div>
+    </div>
+  </header>
+
+  <main>
+    <div class="page-section">
+      <div class="container">
+        <div class="row">
+          <div class="col-lg-6 py-3 wow fadeInUp">
+            <h2 class="title-section">We're <span class="marked">ready to</span> Serve you with best</h2>
+            <div class="divider"></div>
+            <p class="mb-5">We provide telco and utility services to everyone looking to pay their bills, purchase airtime and bundles and many more.</p>
+            <a href="#services" class="btn btn-outline ml-2">See Services</a>
+          </div>
+          <div class="col-lg-6 py-3">
+            <div class="img-place text-center">
+              <img src="../assets/img/bg_image_3.png" alt="">
+            </div>
+          </div>
+        </div>
+      </div> <!-- .container -->
+    </div> <!-- .page-section -->
+  
+{#    <div class="page-section">#}
+{#      <div class="container">#}
+{#        <div class="text-center">#}
+{#          <div class="subhead">Why Choose Us</div>#}
+{#          <h2 class="title-section">Your <span class="marked">Comfort</span> is Our Priority</h2>#}
+{#          <div class="divider mx-auto"></div>#}
+{#        </div>#}
+{#  #}
+{#        <div class="row mt-5 text-center">#}
+{#          <div class="col-lg-4 py-3">#}
+{#            <div class="display-3"><i class="fa-solid fa-truck-fast"></i></div>#}
+{#            <h5>High Performance</h5>#}
+{#            <p>Our Services are one of the best you find out there with high speed and reliability.</p>#}
+{#          </div>#}
+{#          <div class="col-lg-4 py-3">#}
+{#            <div class="display-3"><i class="fa-solid fa-face-smile"></i></div>#}
+{#            <h5>Friendly Prices</h5>#}
+{#            <p>Our prices do not scare. There's an offer from everyone out there.</p>#}
+{#          </div>#}
+{#          <div class="col-lg-4 py-3">#}
+{#            <div class="display-3"><i class="fa-solid fa-thumbs-up"></i></div>#}
+{#            <h5>Easy to Use</h5>#}
+{#            <p>Our services can be utilised by anyone. No complications. Simple to use.</p>#}
+{#          </div>#}
+{#        </div>#}
+{#      </div> <!-- .container -->#}
+{#    </div>#}
+
+     <div class="page-section" id="services">
+         <div class="container">
+             <div class="text-center">
+                 <h2 class="title-section">Our Services</h2>
+                 <div class="divider mx-auto"></div>
+             </div>
+            <div class="row justify-content-center">
+          <div class="col-12 col-lg-auto py-3 wow fadeInLeft">
+            <div class="card-pricing">
+              <div class="header">
+                <div class="price-icon my-1"><i class="fa-solid fa-phone"></i></div>
+                <div class="price-title">Airtime</div>
+              </div>
+              <div class="body py-3">
+                <div class="price-tag">
+                  <span class="period">Daily</span>
+                    <span class="period">/Weekly</span>
+                    <span class="period">/Monthly</span>
+                </div>
+                <div class="price-info">
+                  <p>Choose the plan that is right for you</p>
+                </div>
+              </div>
+              <div class="footer">
+                <a href="{% url 'airtime' %}" class="btn btn-outline rounded-pill">Buy Airtime</a>
+              </div>
+            </div>
+          </div>
+
+          <div class="col-12 col-lg-auto py-3 wow fadeInUp">
+            <div class="card-pricing">
+              <div class="header">
+                <div class="price-icon my-1"><i class="fa-solid fa-signal"></i></div>
+                <div class="price-title">Data Bundle</div>
+              </div>
+              <div class="body py-3">
+                <div class="price-tag">
+                  <span class="period">Daily</span>
+                  <span class="period">/Weekly</span>
+                  <span class="period">/Monthly</span>
+                </div>
+                <div class="price-info">
+                  <p>Choose the plan that right for you</p>
+                </div>
+              </div>
+              <div class="footer">
+                <a href="{% url 'bundle' %}" class="btn btn-outline rounded-pill">Buy Data Bundle</a>
+              </div>
+            </div>
+          </div>
+
+          <div class="col-12 col-lg-auto py-3 wow fadeInRight">
+            <div class="card-pricing">
+              <div class="header">
+                <div class="price-icon my-1"><i class="fa-solid fa-tv"></i></div>
+                <div class="price-title">TV Subscriptions</div>
+              </div>
+              <div class="body py-3">
+                <div class="price-tag">
+                  <span class="period">DSTV</span>
+                  <span class="period">/GOTV</span>
+                  <span class="period">/StarTimes TV</span>
+                </div>
+                <div class="price-info">
+                  <p>Pay for these at the comfort of your home.</p>
+                </div>
+              </div>
+              <div class="footer">
+                <a href="{% url 'tv' %}" class="btn btn-outline rounded-pill">Pay</a>
+              </div>
+            </div>
+          </div>
+
+        </div>
+         </div>
+     </div> <!-- .page-section -->
+  </main>
+
+{% include 'inc/footer.html' %}
+
+{% endblock %}

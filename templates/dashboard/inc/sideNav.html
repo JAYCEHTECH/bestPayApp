@@ -1,0 +1,50 @@
+<div id="layoutSidenav_nav">
+                <nav class="sb-sidenav accordion sb-sidenav-dark" id="sidenavAccordion">
+                    <div class="sb-sidenav-menu">
+                        <div class="nav">
+                            <div class="sb-sidenav-menu-heading">Home</div>
+                            <a class="nav-link" href="{% url 'user-dashboard' %}">
+                                <div class="sb-nav-link-icon"><i class="fa-solid fa-gauge"></i></div>
+                                {{ request.user.username | capfirst }}'s Dashboard
+                            </a>
+                            <a class="nav-link" href="{% url 'home' %}">
+                                <div class="sb-nav-link-icon"><i class="fa-solid fa-house"></i></div>
+                                Back to Site
+                            </a>
+                            <div class="sb-sidenav-menu-heading">Transactions</div>
+                            <a class="nav-link collapsed" href="{% url 'user-dashboard' %}" aria-expanded="false" aria-controls="collapseLayouts">
+                                <div class="sb-nav-link-icon"><i class="fa-solid fa-phone"></i></div>
+                                Airtime
+                            </a>
+                            <a class="nav-link collapsed" href="#" data-bs-toggle="collapse" data-bs-target="#collapseLayouts" aria-expanded="false" aria-controls="collapseLayouts">
+                                <div class="sb-nav-link-icon"><i class="fa-solid fa-signal"></i></div>
+                                Bundles
+                                <div class="sb-sidenav-collapse-arrow"><i class="fas fa-angle-down"></i></div>
+                            </a>
+                            <div class="collapse show" id="collapseLayouts" aria-labelledby="headingOne" data-bs-parent="#sidenavAccordion">
+                                <nav class="sb-sidenav-menu-nested nav">
+                                    <a class="nav-link" href="{% url 'txn_table' keyword="ishare_bundles" %}">iShare Bundle Txns.</a>
+                                    <a class="nav-link" href="{% url 'txn_table' keyword="mtn_bundles" %}">MTN Bundle Txns.</a>
+                                    <a class="nav-link" href="{% url 'txn_table' keyword="mtn_other_bundles" %}">MTN Other Bundles</a>
+                                    <a class="nav-link" href="{% url 'txn_table' keyword="airteltigo_bundles" %}">AirtelTigo Bundle Txns.</a>
+                                    <a class="nav-link" href="{% url 'txn_table' keyword="airteltigo_sika_kokoo" %}">AirtelTigo Sika Kokoo Txns</a>
+                                    <a class="nav-link" href="{% url 'txn_table' keyword="vodafone_bundles" %}">Vodafone Bundle Txns.</a>
+                                </nav>
+                            </div>
+                            <a class="nav-link collapsed" href="#" data-bs-toggle="collapse" data-bs-target="#collapsePages" aria-expanded="false" aria-controls="collapsePages">
+                                <div class="sb-nav-link-icon"><i class="fa-solid fa-tv"></i></div>
+                                TV
+                                <div class="sb-sidenav-collapse-arrow"><i class="fas fa-angle-down"></i></div>
+                            </a>
+                            <div class="collapse" id="collapsePages" aria-labelledby="headingTwo" data-bs-parent="#sidenavAccordion">
+                                <nav class="sb-sidenav-menu-nested nav accordion" id="sidenavAccordionPages">
+                                    <a class="nav-link" href="{% url 'txn_table' keyword="tv_subscriptions" %}">TV Subscriptions Txns.</a>
+                                </nav>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="sb-sidenav-footer">
+                        <div class="small">Endless Possibilities</div>
+                    </div>
+                </nav>
+            </div>
