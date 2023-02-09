@@ -25,7 +25,9 @@ SECRET_KEY = 'django-insecure-rr)%@4h@&71ct*bm11yezgdy6hbjk1@5dz8@@3#&h9&j@7f&)d
 # SECURITY WARNING: don't run with debug turned on in production!
 DEBUG = True
 
-ALLOWED_HOSTS = []
+ALLOWED_HOSTS = [
+    "https://bp-app-i6med.ondigitalocean.app/"
+]
 
 
 # Application definition
